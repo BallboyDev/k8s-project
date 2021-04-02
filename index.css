@@ -1,0 +1,97 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.contents {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.base {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+}
+
+.result {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    width: 50%;
+    height: 100%;
+}
+
+.formBox {
+    position: absolute;
+    height: 50%;
+    width:100%;
+}
+
+.dataBox {
+    position: absolute;
+    top: 50%;
+    height: 50%;
+    width:100%;
+}
+
+#data {
+    height: 100%;
+    width: 100%;
+    resize: none;
+}
+
+#form {
+    height: 100%;
+    width: 100%;
+    resize: none;
+}
+
+#result {
+    height: calc(100% - 30px);
+    width: 100%;
+    resize: none;
+}
+
+.buttons {
+    position: relative;
+    height: 30px;
+    width: 100%;
+    /* line-height: 30px; */
+}
+
+.button {
+    float: left;
+    box-sizing: border-box;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    text-align: center;
+    line-height: 30px;
+    height: 30px;
+    width: 90px;
+    background-color: skyblue;
+}
+
+.radio_tag{
+    margin-left: 0.5rem;
+    float: left;
+    line-height:30px;
+    height:30px;
+}
+
+.button:active {
+    background-color: rgb(65, 97, 109);
+}
+
+.input {
+    background-color: rgb(36, 36, 36);
+    color: rgb(214, 168, 68);
+    font-size: 20px;
+}
+
+#menual {
+    position: absolute;
+    right: 0;
+}

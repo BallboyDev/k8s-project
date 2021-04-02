@@ -1,0 +1,46 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="./index.css">
+    <link rel="shortcut icon" href="./image/favicon-32x32.png" type='image/x-icon'>
+    <meta charset="utf-8">
+    <title>코드 반복 작성 (Ver 3.0)</title>
+</head>
+
+<body>
+    <div class='contents'>
+        <div class='base'>
+
+            <div class='buttons'>
+                <input class='radio radio_tag' type="radio" name="func" checked="checked" value="query" />
+                <div class='radio_tag'>query |</div>
+                <input class='radio radio_tag' type="radio" name="func" value="repeat" />
+                <div class='radio_tag'>repeat |</div>
+            </div>
+
+            <div class='formBox'>
+                <textarea id="form" class='input' placeholder='please input transformation form' spellcheck='false'
+                    onkeydown="if(event.keyCode===9){var v=this.value,s=this.selectionStart,e=this.selectionEnd;this.value=v.substring(0, s)+'&nbsp;&nbsp;&nbsp;&nbsp;'+v.substring(e);this.selectionStart=this.selectionEnd=s+4;return false;}"></textarea>
+            </div>
+            <div class='dataBox'>
+                <textarea id="data" class='input' placeholder='please input data list' spellcheck='false'
+                    onkeydown="if(event.keyCode===9){var v=this.value,s=this.selectionStart,e=this.selectionEnd;this.value=v.substring(0, s)+'&nbsp;&nbsp;&nbsp;&nbsp;'+v.substring(e);this.selectionStart=this.selectionEnd=s+4;return false;}"></textarea>
+            </div>
+
+        </div>
+        <div class='result'>
+            <div class='buttons'>
+                <div id='change' class='button'>change</div>
+                <div id='empty' class='button'>empty</div>
+                <!-- <div id='save' class='button'>save</div> -->
+                <div id='menual' class='button'>menual</div>
+            </div>
+
+            <textarea id="result" class='input' placeholder='result area' spellcheck='false'
+                onkeydown="if(event.keyCode===9){var v=this.value,s=this.selectionStart,e=this.selectionEnd;this.value=v.substring(0, s)+'&nbsp;&nbsp;&nbsp;&nbsp;'+v.substring(e);this.selectionStart=this.selectionEnd=s+4;return false;}"></textarea>
+        </div>
+    </div>
+</body>
+<script src="./index.js"></script>
+
+</html>
