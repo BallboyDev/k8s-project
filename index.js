@@ -38,8 +38,8 @@ window.onload = () => {
                         }
 
                         return {
-                            colName: colName.replace(/[{]|[}]/gi, '') || `colName${i}`,
-                            colType: colType.replace(/[(]|[)]/gi, '') || `colType${i}`,
+                            colName: colName.replace(/[{]|[}]/gi, '').trim() || `colName${i}`,
+                            colType: colType.replace(/[(]|[)]/gi, '').trim() || `colType${i}`,
                             value: value.trim()
                         }
                     } else {
