@@ -14,8 +14,7 @@ window.onload = () => {
         return 'error'
     }
 
-    // 실행버튼, change 버튼 클릭시 실행
-    this.document.getElementById('change').onclick = () => {
+    excute = () => {
         let data = ''; let form = ''; let trans_list = ''; let result = '';
         switch (this.radioStatus()) {
             case 'query':
@@ -23,15 +22,15 @@ window.onload = () => {
                 form = this.document.getElementById('form').value.replace(/[\[](.*?)[\]][\[](.*?)[\]]==>(.*?): /gi, '')
                 data = this.document.getElementById('data').value.replace(/[\[](.*?)[\]][\[](.*?)[\]]==>(.*?): /gi, '').split(',').map((v1, i) => {
 
-                    if ((v1.indexOf('(') > -1 && v1.indexOf(')')) || (v1.indexOf('{') > -1 && v1.indexOf('}'))) {
+                    if ((v1.indexOf('(') > -1 && v1.indexOf(')') > -1) || (v1.indexOf('{') > -1 && v1.indexOf('}') > -1)) {
                         let colName = ''; let colType = ''; let value = '';
                         value = v1
-                        if (v1.indexOf('(') > -1 && v1.indexOf(')')) {
+                        if (v1.indexOf('(') > -1 && v1.indexOf(')') > -1) {
                             let type = v1.match(/[(](.*?)[)]/gi)
                             colType = type[type.length - 1]
                             value = value.replace(colType, '')
                         }
-                        if (v1.indexOf('{') > -1 && v1.indexOf('}')) {
+                        if (v1.indexOf('{') > -1 && v1.indexOf('}') > -1) {
                             let name = v1.match(/[{](.*?)[}]/gi)
                             colName = name[name.length - 1]
                             value = value.replace(colName, '')
@@ -104,6 +103,19 @@ window.onload = () => {
         }
     }
 
+    // 실행버튼, change 버튼 클릭시 실행
+    this.document.getElementById('change').onclick = () => {
+        this.excute()
+    }
+
+    // 텍스트 실시간 수정
+    this.document.getElementById('form').onkeyup = () => {
+        this.excute()
+    }
+    this.document.getElementById('data').onkeyup = () => {
+        this.excute()
+    }
+
     // menual 버튼 클릭시 실행
     // 예시 data와 form을 입력, 사용방법을 출력
     this.document.getElementById('menual').onclick = () => {
@@ -128,5 +140,4 @@ window.onload = () => {
         this.document.getElementById('form').value = '';
         this.document.getElementById('result').value = '';
     }
-
 }
