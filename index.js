@@ -140,4 +140,16 @@ window.onload = () => {
         this.document.getElementById('form').value = '';
         this.document.getElementById('result').value = '';
     }
+
+    this.document.getElementById('api_test').onclick = () => {
+        console.log('ballboy api test button click')
+        // 
+        fetch('https://ballboy.run.goorm.io/test', {
+            method: 'GET',
+        }).then((res) => {
+            console.log(res)
+        }).catch((err) => {
+            console.log(err)
+        })
+    }
 }
