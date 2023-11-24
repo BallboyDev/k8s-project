@@ -141,7 +141,13 @@ window.onload = () => {
         this.document.getElementById('result').value = '';
     }
 
-    this.document.getElementById('api_test').onclick = () => {
+    this.document.getElementById('ballboy').onclick = () => {
+        const doc = this.document
+        console.log(new Date())
+        console.log(doc)
+    }
+
+    this.document.getElementById('api_test').onclick = async () => {
         // console.log('ballboy api test button click')
         // // 
         // fetch('https://ballboy.run.goorm.io/test', {
