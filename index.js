@@ -142,14 +142,18 @@ window.onload = () => {
     }
 
     this.document.getElementById('api_test').onclick = () => {
-        console.log('ballboy api test button click')
-        // 
-        fetch('https://ballboy.run.goorm.io/test', {
-            method: 'GET',
-        }).then((res) => {
-            console.log(res)
-        }).catch((err) => {
-            console.log(err)
-        })
+        // console.log('ballboy api test button click')
+        // // 
+        // fetch('https://ballboy.run.goorm.io/test', {
+        //     method: 'GET',
+        // }).then((res) => {
+        //     console.log(res)
+        // }).catch((err) => {
+        //     console.log(err)
+        // })
+
+        const ipData = await fetch('https://geolocation-db.com/json')
+        const locationIp = await ipData.json()
+        console.log(locationIp)
     }
 }
