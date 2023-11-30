@@ -70,6 +70,12 @@ const Default = () => {
                         testApi
                     </Button>
                     <Button size='sm' color='primary' outline
+                        onClick={() => {
+                            console.log(window.location)
+                        }}>
+                        old version
+                    </Button>
+                    <Button size='sm' color='primary' outline
                         className={'Default__manual'}
                         onClick={() => { }}>
                         manual
