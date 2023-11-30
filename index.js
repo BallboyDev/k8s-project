@@ -162,4 +162,9 @@ window.onload = () => {
         const locationIp = await ipData.json()
         console.log(locationIp)
     }
+
+    this.document.getElementById('new_version').onclick = async () => {
+        console.log('new version')
+        location.href = './newVersion/build/index.html'
+    }
 }
