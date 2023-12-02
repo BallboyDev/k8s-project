@@ -3,6 +3,8 @@ import { Button, ButtonGroup } from "reactstrap"
 import Editor from '@monaco-editor/react'
 import styles from './styles.scss'
 
+
+
 const Default = () => {
 
     // 1 : transform / 2: repeat
@@ -16,11 +18,83 @@ const Default = () => {
         const func = [
             () => {
                 // transform
+                let index = 0
+                let formData = form.replace(/[\[](.*?)[\]][\[](.*?)[\]]==>(.*?): /gi, '')
+                let valueData = value.replace(/[\[](.*?)[\]][\[](.*?)[\]]==>(.*?): /gi, '').split(',').map((v1, i) => {
 
+                    if ((v1.indexOf('(') > -1 && v1.indexOf(')') > -1) || (v1.indexOf('{') > -1 && v1.indexOf('}') > -1)) {
+                        let colName = ''; let colType = ''; let value = '';
+                        value = v1
+                        if (v1.indexOf('(') > -1 && v1.indexOf(')') > -1) {
+                            let type = v1.match(/[(](.*?)[)]/gi)
+                            colType = type[type.length - 1]
+                            value = value.replace(colType, '')
+                        }
+                        if (v1.indexOf('{') > -1 && v1.indexOf('}') > -1) {
+                            let name = v1.match(/[{](.*?)[}]/gi)
+                            colName = name[name.length - 1]
+                            value = value.replace(colName, '')
+                        }
+
+                        return {
+                            colName: colName.replace(/[{]|[}]/gi, '').trim() || `colName${i}`,
+                            colType: colType.replace(/[(]|[)]/gi, '').trim() || `colType${i}`,
+                            value: value.trim()
+                        }
+                    } else {
+                        return {
+                            colName: `colName${i}`,
+                            colType: `colType${i}`,
+                            value: v1.trim()
+                        }
+                    }
+
+                }).filter((v) => { return (v || '') !== '' })
+
+                formData = formData.split('').map((v) => {
+                    if (v === '?') {
+                        return index < valueData.length ? `#{${valueData[index++].colName}}` : v
+                    } else {
+                        return v
+                    }
+                }).join('')
+
+                valueData.map((v) => {
+                    let reg1 = new RegExp(`#{${v.colName}}`, 'gi') // 
+                    if (['NUMBER', 'DECIMAL', 'INT', 'INTEGER', 'FLOAT', 'BIT', 'TIUNYINT', 'SMALLINT', 'NUMERIC'].findIndex((t) => { return v.colType.toUpperCase() === t }) > -1) {
+                        formData = formData.replace(reg1, `${v.value}`)
+                    } else {
+                        formData = formData.replace(reg1, `'${v.value}'`)
+                    }
+
+                })
+
+                // this.document.getElementById('result').value = formData
+                setResult(formData)
             },
             () => {
                 // repeat
-                console.log('repeat')
+                let trans_list
+                let formData = form
+                let valueData = value.split('\n').map((v1, i1) => {
+                    return {
+                        index: i1,
+                        values: v1.split(/ |\t/gi).filter((v) => { return v !== '' }).map((v2, i2) => {
+                            return { [`value${i2}`]: v2 }
+                        })
+                    }
+                })
+
+                valueData.map((v1, i1) => {
+                    let temp = formData.replace(/#{i}/gi, i1)
+                    v1.values.map((v2, i2) => {
+                        let reg2 = new RegExp(`#{(${i2})}`, 'gi')
+                        temp = temp.replace(reg2, v2[`value${i2}`])
+                    })
+                    trans_list = `${trans_list}${temp}\n`
+                })
+
+                setResult(trans_list)
             }
         ]
 
