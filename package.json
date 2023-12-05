@@ -2,6 +2,7 @@
   "name": "personal_tool",
   "version": "0.1.0",
   "private": true,
+  "homepage": "./",
   "dependencies": {
     "@monaco-editor/react": "^4.6.0",
     "@testing-library/jest-dom": "^5.17.0",
