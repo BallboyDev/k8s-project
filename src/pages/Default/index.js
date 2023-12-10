@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Button, ButtonGroup } from "reactstrap"
 import Editor from '@monaco-editor/react'
-import styles from './styles.scss'
+import './styles.scss'
 
 
 
@@ -169,24 +169,8 @@ const Default = () => {
                         onClick={empty}>
                         empty
                     </Button>
-                    <Button size='sm' color='primary' outline
-                        onClick={() => {
-                            console.log(form)
-                            console.log(value)
-                            console.log(result)
-                        }}>
+                    <Button size='sm' color='primary' outline>
                         test
-                    </Button>
-                    {/* <Button size='sm' color='primary' outline
-                        onClick={() => { }}>
-                        testApi
-                    </Button> */}
-                    <Button size='sm' color='primary' outline
-                        href={window.location.origin}
-                        onClick={() => {
-                            console.log(window.location.origin)
-                        }}>
-                        old version
                     </Button>
                     {/* <Route /> */}
                     <Button size='sm' color='primary' outline
