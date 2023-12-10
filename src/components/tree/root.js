@@ -16,7 +16,7 @@ const Root = ({ title, tree }) => {
     return (
         <div className={'Root'}>
             <div className={'Root__title'} onClick={onClick}>
-                <div>{open ? '▼' : '▶'}&nbsp;</div>
+                <div>{open ? '▼' : '▶'}&nbsp;&nbsp;</div>
                 <div>{title}</div>
             </div>
             {

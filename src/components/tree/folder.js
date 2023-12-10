@@ -16,7 +16,7 @@ const Folder = ({ title, path, tree }) => {
     return (
         <div className={'Folder'}>
             <div className={'Folder__title'} onClick={onClick}>
-                <div>{open ? '▼' : '▶'}&nbsp;</div>
+                <div>{open ? '▼' : '▶'}&nbsp;&nbsp;</div>
                 <div >{title}</div>
             </div>
             {

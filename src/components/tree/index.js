@@ -1,36 +1,31 @@
-import tempData from './temp.json'
+import { useEffect } from 'react'
 
+import tempData from './temp.json'
 import './styles.scss'
 import Root from './root'
 
 const Tree = () => {
     const roots = Object.keys(tempData)
 
-    const fileUpload = (e) => {
-        // console.log(log.debug('fileUpload'))
+    // const post = require(`${process.env.PUBLIC_URL}/post/svelte/4장 블록 구조.md`)
 
-        const fileData = e.target.files[0]
-
-        const formData = new FormData();
-        formData.append('file', fileData)
-
-        // callApi.post('/api/fileUpload', {
-        //     param: {
-        //         fileName: fileData.name
-        //     }
+    useEffect(() => {
+        console.log(process.env.PUBLIC_URL)
+        const baseUrl = process.env.PUBLIC_URL
+        // readFile(`${baseUrl}/post/svelte/4장 블록 구조.md`).then((res) => {
+        //     console.log('res >>> ', res)
         // })
-
-    }
+    }, [])
 
     return (
 
         <div className={'FileTree'}>
             <div className={'FileTree__buttonGroup'}>
-                <input type='file' id='input-file' style={{ 'display': 'none' }} onChange={fileUpload} />
-                <label htmlFor='input-file' style={{ 'cursor': 'pointer' }} >upload</label>
-                {/* <div className={''} onClick={fileUpload} >
-                    
-                </div> */}
+                <div className={''} onClick={() => {
+
+                }} >
+                    test
+                </div>
                 {/* <div className={''} onClick={() => { }}>
                     2
                 </div>
