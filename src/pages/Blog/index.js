@@ -6,6 +6,7 @@ import './styles.scss'
 const Blog = () => {
     useEffect(() => {
         console.log('ballboy test')
+
     }, [])
 
     return (

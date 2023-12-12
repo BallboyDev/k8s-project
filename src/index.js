@@ -8,8 +8,8 @@ import Blog from './pages/Blog'
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Default />
+    {/* <Default /> */}
     {/* <Ide /> */}
-    {/* <Blog /> */}
+    <Blog />
   </React.StrictMode>
 );
