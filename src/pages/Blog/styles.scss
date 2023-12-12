@@ -15,7 +15,9 @@
 
 
     &__content {
+        margin: 0;
         background-color: rgb(29, 29, 29);
         flex: 1 0 auto;
+        // overflow: auto;
     }
 }

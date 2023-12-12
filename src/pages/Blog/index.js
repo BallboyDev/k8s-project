@@ -1,30 +1,35 @@
-import { useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import Tree from '../../components/tree'
-
+import { Octokit } from "@octokit/core"
 import './styles.scss'
 import axios from 'axios'
 
-const { Octokit } = require("@octokit/core")
+const posting = async () => {
+    const octokit = new Octokit({ auth: process.env.REACT_APP_TOKEN })
+    try {
+        const { data } = await axios.get(`${process.env.REACT_APP_GITHUB_URL}/study/master/database/ORACLE/2. 데이터 유형.md`)
+
+        const post = await octokit.request('POST /markdown', {
+            text: data,
+            headers: {
+                'X-GitHub-Api-Version': '2022-11-28',
+                'Content-Type': 'text/plain'
+            }
+        })
+
+        return post.data
+    } catch (ex) { }
+}
 
 const Blog = () => {
-    useEffect(() => {
-        console.log('ballboy test')
-        axios.get(`${process.env.REACT_APP_GITHUB_URL}/study/master/database/MongoDB/2_CRUD.md`).then((res) => {
-            console.log(res.data)
+    const [post, setPost] = useState('')
 
-            const octokit = new Octokit({ auth: process.env.REACT_APP_TOKEN })
-            octokit.request('POST /markdown', {
-                text: res.data,
-                headers: {
-                    'X-GitHub-Api-Version': '2022-11-28',
-                    'Content-Type': 'text/plain'
-                }
-            }).then((res) => {
-                console.log('ballboy res >>> ', res)
-            }).catch((ex) => {
-                console.log('ballboy ex >>> ', ex)
-            })
+    useEffect(() => {
+        posting().then((res) => {
+            setPost(res)
         })
+
+        // console.log(result)
     }, [])
 
     return (
@@ -32,7 +37,8 @@ const Blog = () => {
             <div className='Blog__nav'>
                 <Tree />
             </div>
-            <div className='Blog__content'>content</div>
+            {/* <div className='Blog__content'>content</div> */}
+            <div className='Blog__content' ></div>
         </div>
     )
 }
