@@ -24,23 +24,23 @@ const posting = async () => {
 }
 
 const Blog = () => {
-    const [post, setPost] = useState('')
+    const [post, setPost] = useState('<></>')
 
     useEffect(() => {
         posting().then((res) => {
             setPost(res)
         })
-
-        // console.log(result)
     }, [])
+
+
 
     return (
         <div className='Blog'>
             <div className='Blog__nav'>
                 <Tree />
             </div>
-            {/* <div className='Blog__content'>content</div> */}
-            <div className='Blog__content' ></div>
+            <div className='Blog__content'>content</div>
+            {/* <div className='Blog__content' dangerouslySetInnerHTML={{ __html: post || '<></>' }} /> */}
         </div>
     )
 }
