@@ -4,12 +4,13 @@ import ReactDOM from 'react-dom/client';
 import Default from './pages/Default'
 import Ide from './pages/Ide'
 import Blog from './pages/Blog'
+import './styles.scss'
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import ActivityBar from './components/activityBar';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <div style={{ 'padding': '0px' }}>
+  <div className={'BallboyDev'}>
     <BrowserRouter>
       <ActivityBar />
       <Routes>
