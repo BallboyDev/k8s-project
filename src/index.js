@@ -4,15 +4,20 @@ import ReactDOM from 'react-dom/client';
 import Default from './pages/Default'
 import Ide from './pages/Ide'
 import Blog from './pages/Blog'
-// require('dotenv').config()
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import ActivityBar from './components/activityBar';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <div style={{ 'padding': '0px' }}>
-
-    {/* <Default /> */}
-    {/* <Ide /> */}
-    <Blog />
-  </div>
+    <BrowserRouter>
+      <ActivityBar />
+      <Routes>
+        <Route path='/temp/1' element={<Blog />}> </Route>
+        <Route path='/temp/2' element={<Default />}> </Route>
+        <Route path='/temp/3' element={<Ide />}> </Route>
+      </Routes>
+    </BrowserRouter>
+  </div >
 
 );

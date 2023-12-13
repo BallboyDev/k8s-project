@@ -3,6 +3,8 @@ import Tree from '../../components/tree'
 import { Octokit } from "@octokit/core"
 import './styles.scss'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
+import ActivityBar from '../../components/activityBar'
 
 const posting = async () => {
     const octokit = new Octokit({ auth: process.env.REACT_APP_TOKEN })
