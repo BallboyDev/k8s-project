@@ -2,7 +2,7 @@
   "name": "personal_tool",
   "version": "0.1.0",
   "private": true,
-  "homepage": "./",
+  "homepage": "https://ballboydev.github.io/",
   "dependencies": {
     "@monaco-editor/react": "^4.6.0",
     "@octokit/core": "^5.0.2",
