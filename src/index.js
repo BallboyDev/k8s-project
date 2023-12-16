@@ -11,7 +11,7 @@ import ActivityBar from './components/activityBar';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <div className={'BallboyDev'}>
-    <BrowserRouter basename={ProcessingInstruction.env.PUBLIC_URL}>
+    <BrowserRouter>
       <ActivityBar />
       <Routes>
         <Route path='/' element={<Default />}> </Route>

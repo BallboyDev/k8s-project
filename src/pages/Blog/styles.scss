@@ -1,7 +1,9 @@
 .Blog {
     display: flex;
     // position: absolute;
-    background-color: rgb(24, 24, 24);
+    // background-color: rgb(24, 24, 24);
+    // background-color: rgb(2, 4, 9);
+    background-color: rgb(14, 17, 22);
     color: rgb(231, 231, 231);
     height: 100%;
     width: 100%;
@@ -10,14 +12,16 @@
     &__nav {
         width: 12.5rem;
         border: 0.5px solid rgb(38, 38, 38);
+        background-color: rgb(2, 4, 9);
         overflow: auto;
     }
 
 
     &__content {
-        margin: 0;
-        background-color: rgb(29, 29, 29);
+        margin: 1rem 3.5rem;
+        width: calc(100% - 12.5rem - 7rem);
+        // background-color: rgb(14, 17, 22);
         flex: 1 0 auto;
-        // overflow: auto;
+        overflow: auto;
     }
 }

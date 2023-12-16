@@ -7,15 +7,16 @@
 
     &__buttonGroup {
         display: flex;
-        justify-content: space-around;
-        border-bottom: 1px solid black;
+        justify-content: space-evenly;
+        border-bottom: 1px solid rgb(43, 43, 43);
         cursor: pointer;
 
         height: 2rem;
         line-height: 2rem;
 
         &>div {
-            width: 100%;
+            // width: 100%;
+            width: 2rem;
             text-align: center;
         }
     }

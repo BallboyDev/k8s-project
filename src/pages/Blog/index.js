@@ -1,25 +1,28 @@
 import { useState, useEffect } from 'react'
 import Tree from '../../components/tree'
-import { Octokit } from "@octokit/core"
 import './styles.scss'
 import axios from 'axios'
-import { Link } from 'react-router-dom'
-import ActivityBar from '../../components/activityBar'
+import MarkdownIt from 'markdown-it'
 
 const posting = async () => {
-    const octokit = new Octokit({ auth: process.env.REACT_APP_TOKEN })
     try {
-        const { data } = await axios.get(`${process.env.REACT_APP_GITHUB_URL}/study/master/database/ORACLE/2. 데이터 유형.md`)
+        const baseUrl = process.env.REACT_APP_GITHUB_URL
+        const repoBranch = 'jirareport_back/main/'
+        const file = 'ReadMe.md'
+        const { data } = await axios.get(`${baseUrl}${repoBranch}${file}`)
 
-        const post = await octokit.request('POST /markdown', {
-            text: data,
-            headers: {
-                'X-GitHub-Api-Version': '2022-11-28',
-                'Content-Type': 'text/plain'
-            }
+        const regex = /\!\[([^\]]+)\]\(([^\)]+)\)/g
+        const post = data.split('\n').map((v) => {
+            return (
+                regex.test(v)
+                    ? v.replace(regex, `![$1](${baseUrl}${repoBranch}$2)`)
+                    : v
+            )
         })
 
-        return post.data
+        const parse3 = MarkdownIt().render(post.join('\n'))
+
+        return parse3
     } catch (ex) { }
 }
 
@@ -39,8 +42,10 @@ const Blog = () => {
             <div className='Blog__nav'>
                 <Tree />
             </div>
-            <div className='Blog__content'>content</div>
-            {/* <div className='Blog__content' dangerouslySetInnerHTML={{ __html: post || '<></>' }} /> */}
+            <div className='Blog__content'>
+                {/* <div>title</div> */}
+                <article className='markdown-body' dangerouslySetInnerHTML={{ __html: post || '<h2>Loading...</h2>' }} />
+            </div>
         </div>
     )
 }

@@ -8,20 +8,22 @@ const Tree = () => {
     const roots = Object.keys(tempData)
 
     return (
-
         <div className={'FileTree'}>
             <div className={'FileTree__buttonGroup'}>
                 <div className={''} onClick={() => {
-
+                    console.log(process.env.REACT_APP_GITHUB_URL)
                 }} >
-                    test
+                    1
                 </div>
-                {/* <div className={''} onClick={() => { }}>
+                <div className={''} onClick={() => { }}>
                     2
                 </div>
-                <div className={''}>
+                <div className={''} onClick={() => { }}>
                     3
-                </div> */}
+                </div>
+                <div className={''} onClick={() => { }}>
+                    4
+                </div>
             </div>
             <div>
                 {
