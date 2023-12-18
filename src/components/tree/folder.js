@@ -6,7 +6,7 @@ import './styles.scss'
 const Folder = ({ title, path, tree }) => {
     const [open, setOpen] = useState(false)
 
-    const items = Object.keys(tree)
+    const items = Object.keys(tree).sort((a, b) => !!tree[a]?.type ? (!!tree[b]?.type ? (tree[a]?.index - tree[b]?.index) : 1) : (!!tree[b]?.type ? -1 : (a > b ? 1 : -1)))
 
     const onClick = () => {
         console.log(`ballboy ${title} >>>`, path, tree)
@@ -22,7 +22,7 @@ const Folder = ({ title, path, tree }) => {
             {
                 open && items.map((v, i) => {
                     return (
-                        !(tree[v]?.type === 'post') ?
+                        !(!!tree[v]?.type) ?
                             <Folder key={`${v}${i}`} title={v} path={`${path}/${v}`} tree={tree[v]} /> :
                             <File key={`${v}${i}`} title={v} path={`${path}/${v}`} tree={tree[v]} />
                     )

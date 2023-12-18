@@ -3,9 +3,11 @@ import { useEffect } from 'react'
 import tempData from './blog.json'
 import './styles.scss'
 import Root from './root'
+import File from './file'
 
 const Tree = () => {
-    const roots = Object.keys(tempData)
+    console.log(tempData)
+    const roots = Object.keys(tempData).sort((a, b) => !!tempData[a]?.type ? (!!tempData[b]?.type ? (tempData[a]?.index - tempData[b]?.index) : 1) : (!!tempData[b]?.type ? -1 : (a > b ? 1 : -1)))
 
     return (
         <div className={'FileTree'}>
@@ -29,9 +31,19 @@ const Tree = () => {
                 {
                     roots.map((v, i) => {
                         return (
-                            <Root key={`${v}${i}`} title={v} tree={tempData[v]} />
+                            !(!!tempData[v]?.type) ?
+                                <Root key={`${v}${i}`} title={v} tree={tempData[v]} /> :
+                                <File key={`${v}${i}`} title={v} path={`${v}`} tree={tempData[v]} />
                         )
                     })
+
+                    // open && items.map((v, i) => {
+                    //     return (
+                    //         !(!!tree[v]?.type) ?
+                    //             <Folder key={`${v}${i}`} title={v} path={`${path}/${v}`} tree={tree[v]} /> :
+                    //             <File key={`${v}${i}`} title={v} path={`${path}/${v}`} tree={tree[v]} />
+                    //     )
+                    // })
                 }
             </div>
         </div>
