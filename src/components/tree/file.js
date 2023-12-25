@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import './styles.scss'
 import { Tooltip } from 'reactstrap'
 
-const File = ({ title, path }) => {
+const File = ({ title, path, tree, selectItem }) => {
     const [tooltipOpen, setTooltipOpen] = useState(false)
 
     const toggle = () => setTooltipOpen(!tooltipOpen);
@@ -12,6 +12,8 @@ const File = ({ title, path }) => {
     }, [])
 
     const onClick = () => {
+        // console.log(tree)
+        selectItem({ ...tree, title })
         // console.log(`ballboy ${title} >>>`, path)
     }
 
@@ -20,8 +22,8 @@ const File = ({ title, path }) => {
             <div
                 className={'File'}
                 onClick={onClick}
-                onMouseEnter={toggle}
-                onMouseLeave={toggle}
+            // onMouseEnter={toggle}
+            // onMouseLeave={toggle}
             >{title}</div>
             {/* <Tooltip
                 isOpen={tooltipOpen}

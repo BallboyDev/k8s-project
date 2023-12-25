@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import File from './file'
 import './styles.scss'
 
-const Folder = ({ title, path, tree }) => {
+const Folder = ({ title, path, tree, selectItem }) => {
     const [open, setOpen] = useState(false)
 
     const items = Object.keys(tree).sort((a, b) => !!tree[a]?.type ? (!!tree[b]?.type ? (tree[a]?.index - tree[b]?.index) : 1) : (!!tree[b]?.type ? -1 : (a > b ? 1 : -1)))
@@ -24,7 +24,7 @@ const Folder = ({ title, path, tree }) => {
                     return (
                         !(!!tree[v]?.type) ?
                             <Folder key={`${v}${i}`} title={v} path={`${path}/${v}`} tree={tree[v]} /> :
-                            <File key={`${v}${i}`} title={v} path={`${path}/${v}`} tree={tree[v]} />
+                            <File key={`${v}${i}`} title={v} path={`${path}/${v}`} tree={tree[v]} selectItem={selectItem} />
                     )
                 })
             }

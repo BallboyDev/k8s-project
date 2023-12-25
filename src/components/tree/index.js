@@ -1,11 +1,12 @@
 import { useEffect } from 'react'
 
-import tempData from './blog.json'
+// import tempData from './blog.json'
+import tempData from './temp.json'
 import './styles.scss'
 import Root from './root'
 import File from './file'
 
-const Tree = () => {
+const Tree = ({ selectItem }) => {
     // console.log(tempData)
     const roots = Object.keys(tempData).sort((a, b) => !!tempData[a]?.type ? (!!tempData[b]?.type ? (tempData[a]?.index - tempData[b]?.index) : 1) : (!!tempData[b]?.type ? -1 : (a > b ? 1 : -1)))
 
@@ -32,8 +33,8 @@ const Tree = () => {
                     roots.map((v, i) => {
                         return (
                             !(!!tempData[v]?.type) ?
-                                <Root key={`${v}${i}`} title={v} tree={tempData[v]} /> :
-                                <File key={`${v}${i}`} title={v} path={`${v}`} tree={tempData[v]} />
+                                <Root key={`${v}${i}`} title={v} tree={tempData[v]} selectItem={selectItem} /> :
+                                <File key={`${v}${i}`} title={v} path={`${v}`} tree={tempData[v]} selectItem={selectItem} />
                         )
                     })
                 }
