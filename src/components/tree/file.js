@@ -12,7 +12,7 @@ const File = ({ title, path }) => {
     }, [])
 
     const onClick = () => {
-        console.log(`ballboy ${title} >>>`, path)
+        // console.log(`ballboy ${title} >>>`, path)
     }
 
     return (

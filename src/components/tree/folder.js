@@ -9,7 +9,7 @@ const Folder = ({ title, path, tree }) => {
     const items = Object.keys(tree).sort((a, b) => !!tree[a]?.type ? (!!tree[b]?.type ? (tree[a]?.index - tree[b]?.index) : 1) : (!!tree[b]?.type ? -1 : (a > b ? 1 : -1)))
 
     const onClick = () => {
-        console.log(`ballboy ${title} >>>`, path, tree)
+        // console.log(`ballboy ${title} >>>`, path, tree)
         setOpen(!open)
     }
 

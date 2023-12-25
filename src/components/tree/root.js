@@ -9,7 +9,7 @@ const Root = ({ title, tree }) => {
     const items = Object.keys(tree).sort((a, b) => !!tree[a]?.type ? (!!tree[b]?.type ? (tree[a]?.index - tree[b]?.index) : 1) : (!!tree[b]?.type ? -1 : (a > b ? 1 : -1)))
 
     const onClick = () => {
-        console.log(`ballboy ${title} >>>`, tree)
+        // console.log(`ballboy ${title} >>>`, tree)
         setOpen(!open)
     }
 

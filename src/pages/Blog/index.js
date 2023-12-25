@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react'
 import Tree from '../../components/tree'
+import Intro from './intro'
 import './styles.scss'
 import axios from 'axios'
 import MarkdownIt from 'markdown-it'
+
 
 const posting = async () => {
     try {
@@ -21,7 +23,7 @@ const posting = async () => {
         })
 
         const parse3 = MarkdownIt().render(post.join('\n'))
-        console.log(parse3)
+        // console.log(parse3)
 
         return parse3
     } catch (ex) { }
@@ -31,9 +33,9 @@ const Blog = () => {
     const [post, setPost] = useState('<></>')
 
     useEffect(() => {
-        // // const test = 
-        // const reader = new FileReader
-        // reader.readAsText(require('../../_post/test.md'))
+
+        console.log(fetch(require('../../_post/test.md'))
+            .then(res => res.text()))
 
         posting().then((res) => {
             setPost(res)
@@ -48,8 +50,15 @@ const Blog = () => {
                 <Tree />
             </div>
             <div className='Blog__content'>
-                {/* <div>title</div> */}
-                <article className='markdown-body' dangerouslySetInnerHTML={{ __html: post || '<h2>Loading...</h2>' }} />
+                <Intro />
+                {/* <div className='Blog__content__titles'>
+                    <div className='Blog__content__titles__title'>Title1</div>
+                    <div className='Blog__content__titles__title'>Title2</div>
+                    <div className='Blog__content__titles__title'>Title3</div>
+                    <div className='Blog__content__titles__title'>Title4</div>
+                    <div className='Blog__content__titles__title'>Title5</div>
+                </div>
+                <article className='markdown-body' dangerouslySetInnerHTML={{ __html: post || '<h2>Loading...</h2>' }} /> */}
             </div>
         </div>
     )

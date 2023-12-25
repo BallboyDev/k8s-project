@@ -6,14 +6,14 @@ import Root from './root'
 import File from './file'
 
 const Tree = () => {
-    console.log(tempData)
+    // console.log(tempData)
     const roots = Object.keys(tempData).sort((a, b) => !!tempData[a]?.type ? (!!tempData[b]?.type ? (tempData[a]?.index - tempData[b]?.index) : 1) : (!!tempData[b]?.type ? -1 : (a > b ? 1 : -1)))
 
     return (
         <div className={'FileTree'}>
             <div className={'FileTree__buttonGroup'}>
                 <div className={''} onClick={() => {
-                    console.log(process.env.REACT_APP_GITHUB_URL)
+                    // console.log(process.env.REACT_APP_GITHUB_URL)
                 }} >
                     1
                 </div>

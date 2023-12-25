@@ -102,7 +102,7 @@ const Default = () => {
     }
 
     const empty = () => {
-        console.log('ballboy empty')
+        // console.log('ballboy empty')
 
         setForm(() => { return '' })
         setValue(() => { return '' })
