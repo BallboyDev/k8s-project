@@ -36,14 +36,6 @@ const Tree = () => {
                                 <File key={`${v}${i}`} title={v} path={`${v}`} tree={tempData[v]} />
                         )
                     })
-
-                    // open && items.map((v, i) => {
-                    //     return (
-                    //         !(!!tree[v]?.type) ?
-                    //             <Folder key={`${v}${i}`} title={v} path={`${path}/${v}`} tree={tree[v]} /> :
-                    //             <File key={`${v}${i}`} title={v} path={`${path}/${v}`} tree={tree[v]} />
-                    //     )
-                    // })
                 }
             </div>
         </div>

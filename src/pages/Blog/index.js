@@ -21,6 +21,7 @@ const posting = async () => {
         })
 
         const parse3 = MarkdownIt().render(post.join('\n'))
+        console.log(parse3)
 
         return parse3
     } catch (ex) { }
@@ -30,6 +31,10 @@ const Blog = () => {
     const [post, setPost] = useState('<></>')
 
     useEffect(() => {
+        // // const test = 
+        // const reader = new FileReader
+        // reader.readAsText(require('../../_post/test.md'))
+
         posting().then((res) => {
             setPost(res)
         })

@@ -1,7 +1,5 @@
 .FileTree {
-    // width: 10rem;
     min-width: 10rem;
-    // border-right: 1px solid black;
 
     color: rgb(197, 197, 197);
 
@@ -51,6 +49,8 @@
     padding-left: 1rem;
     margin-top: 0.25rem;
     margin-bottom: 0.25rem;
+
+    white-space: nowrap;
 
     cursor: pointer;
 }

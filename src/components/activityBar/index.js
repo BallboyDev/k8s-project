@@ -4,19 +4,19 @@ import './styles.scss'
 const ActivityBar = () => {
     return (
         <div className='ActivityBar'>
-            <Link to="/temp/1">
+            <Link to="Blog">
                 <div>1</div>
             </Link>
-            <Link to="/temp/2">
+            <Link to="Tools">
                 <div>2</div>
             </Link>
-            <Link to="/temp/3">
+            <Link to="Ide">
                 <div>3</div>
             </Link>
-            <Link to="/temp/4">
+            <Link to="/">
                 <div>4</div>
             </Link>
-            <Link to="/temp/5">
+            <Link to="/">
                 <div>5</div>
             </Link>
         </div>
