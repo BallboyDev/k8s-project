@@ -1,0 +1,198 @@
+{
+    "fastApi": {},
+    "docker": {
+        "docker": {
+            "type": true,
+            "date": "20231219",
+            "index": 1
+        }
+    },
+    "database": {
+        "mongoDB": {
+            "1. 소개 및 데이터 모델링": {
+                "type": true,
+                "date": "20231219",
+                "index": 1
+            },
+            "2. Database, Collection, Document 생성, 제거": {
+                "type": true,
+                "date": "20231219",
+                "index": 2
+            },
+            "3. Document Query(조회) - find()": {
+                "type": true,
+                "date": "20231219",
+                "index": 3
+            },
+            "4. find()메소드 활용 - sort, limit, skip": {
+                "type": true,
+                "date": "20231219",
+                "index": 4
+            },
+            "5. Document 수정 - update()": {
+                "type": true,
+                "date": "20231219",
+                "index": 5
+            },
+            "6. index설정": {
+                "type": true,
+                "date": "20231219",
+                "index": 6
+            }
+        },
+        "MySql": {
+            "MySQL 날짜형 함수들": {
+                "type": true,
+                "date": "20231219",
+                "index": 1
+            },
+            "MySQL 문자형 함수들": {
+                "type": true,
+                "date": "20231219",
+                "index": 2
+            },
+            "MySQL 숫자형 함수들": {
+                "type": true,
+                "date": "20231219",
+                "index": 3
+            },
+            "MySQL 집계 함수": {
+                "type": true,
+                "date": "20231219",
+                "index": 4
+            },
+            "join": {
+                "type": true,
+                "date": "20231219",
+                "index": 5
+            },
+            "practice01": {
+                "type": true,
+                "date": "20231219",
+                "index": 6
+            },
+            "practice02": {
+                "type": true,
+                "date": "20231219",
+                "index": 7
+            },
+            "practice03(group by, join)": {
+                "type": true,
+                "date": "20231219",
+                "index": 8
+            },
+            "practice04(subquery)": {
+                "type": true,
+                "date": "20231219",
+                "index": 9
+            },
+            "subquery": {
+                "type": true,
+                "date": "20231219",
+                "index": 10
+            },
+            "기본 select": {
+                "type": true,
+                "date": "20231219",
+                "index": 11
+            }
+        },
+        "Oracle": {
+            "1. 데이터 베이스 개념 및 기본 용어.md": {
+                "type": true,
+                "date": "20231219",
+                "index": 1
+            },
+            "2. 데이터 유형.md": {
+                "type": true,
+                "date": "20231219",
+                "index": 2
+            },
+            "3. 컬럼 및 로우의 선택.md": {
+                "type": true,
+                "date": "20231219",
+                "index": 3
+            },
+            "4. 복합 조건 지정 및 데이터 정렬.md": {
+                "type": true,
+                "date": "20231219",
+                "index": 4
+            },
+            "5. 문자, 숫자 함수.md": {
+                "type": true,
+                "date": "20231219",
+                "index": 5
+            },
+            "6. 날짜 연산 및 날짜 함수.md": {
+                "type": true,
+                "date": "20231219",
+                "index": 6
+            },
+            "7. 변환함수.md": {
+                "type": true,
+                "date": "20231219",
+                "index": 7
+            },
+            "8. 일반함수.md": {
+                "type": true,
+                "date": "20231219",
+                "index": 8
+            },
+            "9. 그룹 함수.md": {
+                "type": true,
+                "date": "20231219",
+                "index": 9
+            },
+            "10. 윈도우 함수.md": {
+                "type": true,
+                "date": "20231219",
+                "index": 10
+            },
+            "11. 조인 처리 과정 이해 및 기본 조인 문장.md": {
+                "type": true,
+                "date": "20231219",
+                "index": 11
+            },
+            "12. 조인 문장 및 집합 연산자.md": {
+                "type": true,
+                "date": "20231219",
+                "index": 12
+            },
+            "13. 서브쿼리.md": {
+                "type": true,
+                "date": "20231219",
+                "index": 13
+            }
+        }
+    },
+    "node": {
+        "electron": {
+            "adding-feature": {
+                "type": true,
+                "date": "19940329",
+                "index": 1
+            },
+            "electron-base": {
+                "type": true,
+                "date": "19940329",
+                "index": 2
+            },
+            "test-app": {
+                "type": true,
+                "date": "19940329",
+                "index": 3
+            },
+            "using-preload-script": {
+                "type": true,
+                "date": "19940329",
+                "index": 4
+            }
+        },
+        "express": {},
+        "nestjs": {}
+    },
+    "spring": {},
+    "ballboy": {
+        "blog": {}
+    }
+}

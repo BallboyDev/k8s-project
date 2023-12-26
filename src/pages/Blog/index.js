@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import Tree from '../../components/tree'
-import Intro from './intro'
+import Intro from '../../components/intro'
 import './styles.scss'
 import axios from 'axios'
 import MarkdownIt from 'markdown-it'
@@ -41,28 +41,21 @@ const Blog = () => {
     const [postList, setPostList] = useState([])
 
     const selectItem = (data) => {
-        console.log('ballboy >> ', data)
-        setPostList(() => {
-            return [...postList, data]
-        })
+        setPostList([...postList, data])
 
 
+        // console.log(fetch(require('../../_post/test.md')).then(res => res.text()))
         posting(data.url).then((res) => {
-            console.log(res)
             setPost(res)
         })
     }
 
-    // useEffect(() => {
-
-    //     console.log(fetch(require('../../_post/test.md'))
-    //         .then(res => res.text()))
-
-    //     // posting().then((res) => {
-    //     //     console.log(res)
-    //     //     setPost(res)
-    //     // })
-    // }, [])
+    useEffect(() => {
+        const openPost = localStorage.getItem('openPost')
+        if (!openPost || (openPost.trim() === '')) {
+            localStorage.setItem('openPost', '|')
+        }
+    }, [])
 
 
 
@@ -77,7 +70,9 @@ const Blog = () => {
                         <Intro /> : <>
                             <div className='Blog__content__titles'>
                                 {
-                                    postList.map((v) => { return <div className='Blog__content__titles__title'>{v.title}</div> })
+                                    postList.map((v) => {
+                                        return <div className='Blog__content__titles__title'>{v.title}</div>
+                                    })
                                 }
                             </div>
                             <article className='markdown-body' dangerouslySetInnerHTML={{ __html: post || '<h2>Loading...</h2>' }} />
