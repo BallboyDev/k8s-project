@@ -2,6 +2,8 @@
     min-width: 10rem;
 
     color: rgb(197, 197, 197);
+    font-size: 14px;
+    font-family: 'Noto Sans KR', sans-serif;
 
     &__buttonGroup {
         display: flex;
@@ -22,8 +24,8 @@
 
 .Root {
     padding-left: 1rem;
-    margin-top: 0.25rem;
-    margin-bottom: 0.25rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
 
     cursor: pointer;
 
@@ -35,8 +37,8 @@
 
 .Folder {
     padding-left: 1rem;
-    margin-top: 0.25rem;
-    margin-bottom: 0.25rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
 
     cursor: pointer;
 

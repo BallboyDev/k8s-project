@@ -11,13 +11,13 @@
 
     &__nav {
         z-index: 9999;
-        width: 30%;
+        width: 12.5rem;
         border: 0.5px solid rgb(38, 38, 38);
         background-color: rgb(2, 4, 9);
         overflow: auto;
 
-        &:not(:hover) {
-            width: 12.5rem;
+        &:hover {
+            width: 30%;
         }
 
         transition: width 0.3s;
@@ -63,7 +63,8 @@
         }
 
         &>.markdown-body {
-            margin: 1rem 0;
+            width: 63.25rem;
+            margin: 1rem auto;
             padding: 0 3.5rem;
         }
     }
