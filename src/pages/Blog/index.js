@@ -71,13 +71,15 @@ const Blog = () => {
             localStorage.setItem('openPost', '|')
         }
 
-        // if ((JSON.parse(openList) || []).length !== 0) {
-        //     const data = JSON.parse(openList)
-        //     setPostList(data)
-        //     selectItem(data[0])
-        // } else {
-        //     localStorage.setItem('openList', '[]')
-        // }
+        if ((JSON.parse(openList) || []).length !== 0) {
+            const data = JSON.parse(openList)
+            setPostList(data)
+            posting(data[0].url).then((res) => {
+                setPost(res)
+            })
+        } else {
+            localStorage.setItem('openList', '[]')
+        }
     }, [])
 
     return (
