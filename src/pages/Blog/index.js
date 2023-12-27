@@ -50,7 +50,7 @@ const Blog = () => {
                 result = [...postList, data]
             }
 
-            // localStorage.setItem('')
+            localStorage.setItem('openList', JSON.stringify(result))
 
             return result
         })
@@ -66,9 +66,18 @@ const Blog = () => {
 
     useEffect(() => {
         const openPost = localStorage.getItem('openPost')
+        const openList = localStorage.getItem('openList')
         if (!openPost || (openPost.trim() === '')) {
             localStorage.setItem('openPost', '|')
         }
+
+        // if ((JSON.parse(openList) || []).length !== 0) {
+        //     const data = JSON.parse(openList)
+        //     setPostList(data)
+        //     selectItem(data[0])
+        // } else {
+        //     localStorage.setItem('openList', '[]')
+        // }
     }, [])
 
     return (

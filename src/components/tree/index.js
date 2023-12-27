@@ -14,9 +14,12 @@ const Tree = ({ selectItem }) => {
             <div className={'FileTree__buttonGroup'}>
                 <div className={''} onClick={() => { }}>1</div>
                 <div className={''} onClick={() => { }}>2</div>
-                <div className={''} onClick={() => { }}>3</div>
                 <div className={''} onClick={() => {
-                    localStorage.setItem('openPost', '|')
+                    const openList = localStorage.getItem('openList')
+                    console.log(JSON.parse(openList))
+                }}>3</div>
+                <div className={''} onClick={() => {
+                    localStorage.clear()
                 }}>4</div>
             </div>
             <div>

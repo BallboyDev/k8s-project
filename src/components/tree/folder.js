@@ -16,7 +16,7 @@ const Folder = ({ title, path, tree, selectItem }) => {
     }
 
     useEffect(() => {
-        const openPost = localStorage.getItem('openPost')
+        const openPost = localStorage.getItem('openPost') || '|'
         setOpen(openPost.indexOf(`|${_id}|`) >= 0)
     }, [])
 
