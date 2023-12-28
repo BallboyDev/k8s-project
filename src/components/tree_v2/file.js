@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import './styles.scss'
 
-const File = ({ data }) => {
+const File = ({ data, selectItem }) => {
     const { title, desc, id, type } = data
     const { _data, _date, _index } = data
 

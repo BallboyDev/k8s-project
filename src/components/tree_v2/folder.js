@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 import File from './file'
 import './styles.scss'
 
-const Folder = ({ data }) => {
+const Folder = ({ data, selectItem }) => {
     const { title, desc, id, type } = data
     const { _include } = data
     const [isOpen, setIsOpen] = useState(false)
@@ -21,9 +21,9 @@ const Folder = ({ data }) => {
             {
                 isOpen && _include.map((v, i) => {
                     if (v.type === 'folder') {
-                        return <Folder key={`${v.id}-${i}`} data={v} />
+                        return <Folder key={`${v.id}-${i}`} data={v} selectItem={selectItem} />
                     } else {
-                        return <File key={`${v.id}-${i}`} data={v} />
+                        return <File key={`${v.id}-${i}`} data={v} selectItem={selectItem} />
                     }
                 })
             }

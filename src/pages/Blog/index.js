@@ -40,57 +40,84 @@ const Blog = () => {
     const [post, setPost] = useState('<></>')
     const [postList, setPostList] = useState([])
 
-    const selectItem = (data) => {
-        setPostList(() => {
-            let result = []
-            if (postList.length >= 5) {
-                const [f, ...o] = postList
-                result = [...o, data]
-            } else {
-                result = [...postList, data]
-            }
+    // const selectItem = (data) => {
+    //     setPostList(() => {
+    //         let result = []
+    //         if (postList.length >= 5) {
+    //             const [f, ...o] = postList
+    //             result = [...o, data]
+    //         } else {
+    //             result = [...postList, data]
+    //         }
 
-            localStorage.setItem('openList', JSON.stringify(result))
+    //         localStorage.setItem('openList', JSON.stringify(result))
 
-            return result
-        })
+    //         return result
+    //     })
 
-        // setPostList([...postList, data])
+    //     // setPostList([...postList, data])
 
-        // console.log(fetch(require('../../_post/test.md')).then(res => res.text()))
-        console.log(data)
-        posting(data.url).then((res) => {
-            setPost(res)
-        })
+    //     // console.log(fetch(require('../../_post/test.md')).then(res => res.text()))
+    //     console.log(data)
+    //     posting(data.url).then((res) => {
+    //         setPost(res)
+    //     })
+    // }
+
+    const selectItem = (item) => {
+        console.log('ballboy >>', item)
     }
+    const supportBtn = [
+        {
+            title: 'a',
+            tooltip: '',
+            func: () => { }
+        },
+        {
+            title: 'b',
+            tooltip: '',
+            func: () => { }
+        },
+        {
+            title: 'c',
+            tooltip: '',
+            func: () => { }
+        },
+        {
+            title: 'd',
+            tooltip: '',
+            func: () => { }
+        },
+    ]
 
     useEffect(() => {
-        const openPost = localStorage.getItem('openPost')
-        const openList = localStorage.getItem('openList')
-        if (!openPost || (openPost.trim() === '')) {
-            localStorage.setItem('openPost', '|')
-        }
+        // const openPost = localStorage.getItem('openPost')
+        // const openList = localStorage.getItem('openList')
+        // if (!openPost || (openPost.trim() === '')) {
+        //     localStorage.setItem('openPost', '|')
+        // }
 
-        if ((JSON.parse(openList) || []).length !== 0) {
-            const data = JSON.parse(openList)
-            setPostList(data)
-            posting(data[0].url).then((res) => {
-                setPost(res)
-            })
-        } else {
-            localStorage.setItem('openList', '[]')
-        }
+        // if ((JSON.parse(openList) || []).length !== 0) {
+        //     const data = JSON.parse(openList)
+        //     setPostList(data)
+        //     posting(data[0].url).then((res) => {
+        //         setPost(res)
+        //     })
+        // } else {
+        //     localStorage.setItem('openList', '[]')
+        // }
     }, [])
 
     return (
         <div className='Blog'>
             <div className='Blog__nav'>
-                <Tree selectItem={selectItem} />
+                <Tree selectItem={selectItem} supportBtn={supportBtn} />
             </div>
             <div className='Blog__content'>
                 {
                     postList.length === 0 ?
-                        <Intro /> : <>
+                        <Intro /> :
+                        <>
                             <div className='Blog__content__titles'>
                                 {
                                     postList.map((v, i) => {
