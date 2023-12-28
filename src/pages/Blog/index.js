@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import Tree from '../../components/tree'
+import Tree from '../../components/tree_v2'
 import Intro from '../../components/intro'
 import './styles.scss'
 import axios from 'axios'

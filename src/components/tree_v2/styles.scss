@@ -1,0 +1,58 @@
+.FileTree {
+    min-width: 10rem;
+
+    color: rgb(197, 197, 197);
+    font-size: 14px;
+    font-family: 'Noto Sans KR', sans-serif;
+
+    &__buttonGroup {
+        display: flex;
+        justify-content: space-evenly;
+        border-bottom: 1px solid rgb(43, 43, 43);
+        cursor: pointer;
+
+        height: 2rem;
+        line-height: 2rem;
+
+        &>div {
+            // width: 100%;
+            width: 2rem;
+            text-align: center;
+        }
+    }
+}
+
+.Root {
+    padding-left: 1rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+
+    cursor: pointer;
+
+    &__title {
+        display: flex;
+        font-weight: bolder;
+    }
+}
+
+.Folder {
+    padding-left: 1rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+
+    cursor: pointer;
+
+    &__title {
+        display: flex;
+    }
+}
+
+.File {
+    padding-left: 1rem;
+    margin-top: 0.25rem;
+    margin-bottom: 0.25rem;
+
+    white-space: nowrap;
+
+    cursor: pointer;
+}
