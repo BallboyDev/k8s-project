@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import Tree from '../../components/tree_v2'
+import Tree from '../../components/tree'
 import Intro from '../../components/intro'
 import './styles.scss'
 import axios from 'axios'
@@ -37,35 +37,44 @@ const posting = async (url) => {
 }
 
 const Blog = () => {
-    const [post, setPost] = useState('<></>')
+    const [currentPost, setCurrentPost] = useState('<></>')
     const [postList, setPostList] = useState([])
 
-    // const selectItem = (data) => {
-    //     setPostList(() => {
-    //         let result = []
-    //         if (postList.length >= 5) {
-    //             const [f, ...o] = postList
-    //             result = [...o, data]
-    //         } else {
-    //             result = [...postList, data]
-    //         }
+    useEffect(() => {
+        const openList = localStorage.getItem('openList')
+        if (!openList) {
+            console.log(1)
+            localStorage.setItem('openList', JSON.stringify([]))
+            setPostList([])
+        } else {
+            const temp = JSON.parse(openList)
 
-    //         localStorage.setItem('openList', JSON.stringify(result))
+            if (temp.length > 0) {
+                console.log(2, temp)
+                setPostList(temp)
 
-    //         return result
-    //     })
+                posting(temp[0]._data).then((res) => {
+                    setCurrentPost(res)
+                })
+            }
+        }
+    }, [])
 
-    //     // setPostList([...postList, data])
+    const selectItem = async (item) => {
+        // 아이템 중복 경우 해결
+        const temp = postList.some((v) => { return v.id === item.id })
+        if (!temp) {
+            if (postList.length >= 5) {
+                const [first, ...others] = postList
+                localStorage.setItem('openList', JSON.stringify([...others, item]))
+                setPostList([...others, item])
+            } else {
+                localStorage.setItem('openList', JSON.stringify([...postList, item]))
+                setPostList([...postList, item])
+            }
+        }
+        setCurrentPost(await posting(item._data))
 
-    //     // console.log(fetch(require('../../_post/test.md')).then(res => res.text()))
-    //     console.log(data)
-    //     posting(data.url).then((res) => {
-    //         setPost(res)
-    //     })
-    // }
-
-    const selectItem = (item) => {
-        console.log('ballboy >>', item)
     }
     const supportBtn = [
         {
@@ -86,27 +95,11 @@ const Blog = () => {
         {
             title: 'd',
             tooltip: '',
-            func: () => { }
+            func: () => {
+                localStorage.clear()
+            }
         },
     ]
-
-    useEffect(() => {
-        // const openPost = localStorage.getItem('openPost')
-        // const openList = localStorage.getItem('openList')
-        // if (!openPost || (openPost.trim() === '')) {
-        //     localStorage.setItem('openPost', '|')
-        // }
-
-        // if ((JSON.parse(openList) || []).length !== 0) {
-        //     const data = JSON.parse(openList)
-        //     setPostList(data)
-        //     posting(data[0].url).then((res) => {
-        //         setPost(res)
-        //     })
-        // } else {
-        //     localStorage.setItem('openList', '[]')
-        // }
-    }, [])
 
     return (
         <div className='Blog'>
@@ -121,11 +114,19 @@ const Blog = () => {
                             <div className='Blog__content__titles'>
                                 {
                                     postList.map((v, i) => {
-                                        return <div className='Blog__content__titles__title'>{i} / {v.title}</div>
+                                        return (
+                                            <div
+                                                key={`${v.id}-${i}`}
+                                                className='Blog__content__titles__title'
+                                                onClick={() => { selectItem(v) }}>
+                                                <div>{i + 1} / {v.title}</div>
+                                                {/* <div>X</div> */}
+                                            </div>
+                                        )
                                     })
                                 }
                             </div>
-                            <article className='markdown-body' dangerouslySetInnerHTML={{ __html: post || '<h2>Loading...</h2>' }} />
+                            <article className='markdown-body' dangerouslySetInnerHTML={{ __html: currentPost || '<h2>Loading...</h2>' }} />
                         </>
                 }
             </div>

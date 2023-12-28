@@ -2,19 +2,19 @@
     {
         "title": "database",
         "desc": "데이터 베이스 study",
-        "id": "",
+        "id": "0",
         "type": "folder",
         "_include": [
             {
                 "title": "mongoDB",
                 "desc": "",
-                "id": "",
+                "id": "1",
                 "type": "folder",
                 "_include": [
                     {
                         "title": "1. 소개 및 데이터 모델링",
                         "desc": "",
-                        "id": "",
+                        "id": "2",
                         "type": "file",
                         "_index": 1,
                         "_date": "20231228/20231228",
@@ -23,7 +23,7 @@
                     {
                         "title": "2. Database, Collection, Document 생성, 제거",
                         "desc": "",
-                        "id": "",
+                        "id": "3",
                         "type": "file",
                         "_index": 2,
                         "_date": "20231228/20231228",
@@ -32,7 +32,7 @@
                     {
                         "title": "3. Document Query(조회) - find()",
                         "desc": "",
-                        "id": "",
+                        "id": "4",
                         "type": "file",
                         "_index": 3,
                         "_date": "20231228/20231228",
@@ -41,7 +41,7 @@
                     {
                         "title": "4. find()메소드 활용 - sort, limit, skip",
                         "desc": "",
-                        "id": "",
+                        "id": "5",
                         "type": "file",
                         "_index": 4,
                         "_date": "20231228/",
@@ -50,7 +50,7 @@
                     {
                         "title": "5. Document 수정 - update()",
                         "desc": "",
-                        "id": "",
+                        "id": "6",
                         "type": "file",
                         "_index": 5,
                         "_date": "20231228/",
@@ -59,7 +59,7 @@
                     {
                         "title": "6. index설정",
                         "desc": "",
-                        "id": "",
+                        "id": "7",
                         "type": "file",
                         "_index": 6,
                         "_date": "20231228/",
@@ -70,13 +70,13 @@
             {
                 "title": "MySql",
                 "desc": "",
-                "id": "",
+                "id": "8",
                 "type": "folder",
                 "_include": [
                     {
                         "title": "MySQL 날짜형 함수들",
                         "desc": "temp Data",
-                        "id": "",
+                        "id": "9",
                         "type": "file",
                         "_index": 1,
                         "_date": "20231228/",
@@ -85,7 +85,7 @@
                     {
                         "title": "MySQL 문자형 함수들",
                         "desc": "temp Data",
-                        "id": "",
+                        "id": "10",
                         "type": "file",
                         "_index": 2,
                         "_date": "20231228/",
@@ -94,7 +94,7 @@
                     {
                         "title": "MySQL 숫자형 함수들",
                         "desc": "temp Data",
-                        "id": "",
+                        "id": "11",
                         "type": "file",
                         "_index": 3,
                         "_date": "20231228/",
@@ -103,7 +103,7 @@
                     {
                         "title": "MySQL 집계 함수",
                         "desc": "temp Data",
-                        "id": "",
+                        "id": "12",
                         "type": "file",
                         "_index": 4,
                         "_date": "20231228/",
@@ -112,7 +112,7 @@
                     {
                         "title": "join",
                         "desc": "temp Data",
-                        "id": "",
+                        "id": "13",
                         "type": "file",
                         "_index": 5,
                         "_date": "20231228/",
@@ -121,7 +121,7 @@
                     {
                         "title": "practice01",
                         "desc": "temp Data",
-                        "id": "",
+                        "id": "14",
                         "type": "file",
                         "_index": 6,
                         "_date": "20231228/",
@@ -130,7 +130,7 @@
                     {
                         "title": "practice02",
                         "desc": "temp Data",
-                        "id": "",
+                        "id": "15",
                         "type": "file",
                         "_index": 7,
                         "_date": "20231228/",
@@ -139,7 +139,7 @@
                     {
                         "title": "practice03(group by, join)",
                         "desc": "temp Data",
-                        "id": "",
+                        "id": "16",
                         "type": "file",
                         "_index": 8,
                         "_date": "20231228/",
@@ -148,7 +148,7 @@
                     {
                         "title": "practice04(subquery)",
                         "desc": "temp Data",
-                        "id": "",
+                        "id": "17",
                         "type": "file",
                         "_index": 9,
                         "_date": "20231228/",
@@ -157,7 +157,7 @@
                     {
                         "title": "subquery",
                         "desc": "temp Data",
-                        "id": "",
+                        "id": "18",
                         "type": "file",
                         "_index": 10,
                         "_date": "20231228/",
@@ -166,7 +166,7 @@
                     {
                         "title": "기본 select",
                         "desc": "temp Data",
-                        "id": "",
+                        "id": "19",
                         "type": "file",
                         "_index": 11,
                         "_date": "20231228/",
@@ -177,13 +177,13 @@
             {
                 "title": "Oracle",
                 "desc": "",
-                "id": "",
+                "id": "20",
                 "type": "folder",
                 "_include": [
                     {
                         "title": "1. 데이터 베이스 개념 및 기본 용어.md",
                         "desc": "temp Data",
-                        "id": "",
+                        "id": "21",
                         "type": "file",
                         "_index": 1,
                         "_date": "20231228/",
@@ -192,7 +192,7 @@
                     {
                         "title": "2. 데이터 유형.md",
                         "desc": "temp Data",
-                        "id": "",
+                        "id": "22",
                         "type": "file",
                         "_index": 2,
                         "_date": "20231228/",
@@ -201,7 +201,7 @@
                     {
                         "title": "3. 컬럼 및 로우의 선택.md",
                         "desc": "temp Data",
-                        "id": "",
+                        "id": "23",
                         "type": "file",
                         "_index": 3,
                         "_date": "20231228/",
@@ -210,7 +210,7 @@
                     {
                         "title": "4. 복합 조건 지정 및 데이터 정렬.md",
                         "desc": "temp Data",
-                        "id": "",
+                        "id": "24",
                         "type": "file",
                         "_index": 4,
                         "_date": "20231228/",
@@ -219,7 +219,7 @@
                     {
                         "title": "5. 문자, 숫자 함수.md",
                         "desc": "temp Data",
-                        "id": "",
+                        "id": "25",
                         "type": "file",
                         "_index": 5,
                         "_date": "20231228/",
@@ -232,7 +232,7 @@
     {
         "title": "readMe file",
         "desc": "README",
-        "id": "",
+        "id": "26",
         "type": "file",
         "_index": 1,
         "_date": "20231228/20231228",
