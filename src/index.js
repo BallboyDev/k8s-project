@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import 'bootstrap/dist/css/bootstrap.min.css'
-import Default from './pages/Default'
+import Tools from './pages/Tools'
 import Ide from './pages/Ide'
 import Blog from './pages/Blog'
 import './styles.scss'
@@ -17,7 +17,7 @@ root.render(
       <Routes>
         <Route path='/' element={<Blog />}> </Route>
         <Route path='Blog' element={<Blog />}> </Route>
-        <Route path='Tools' element={<Default />}> </Route>
+        <Route path='Tools' element={<Tools />}> </Route>
         <Route path='Ide' element={<Ide />}> </Route>
       </Routes>
       {/* </BrowserRouter> */}

@@ -4,7 +4,7 @@ import Intro from '../../components/intro'
 import './styles.scss'
 import axios from 'axios'
 import MarkdownIt from 'markdown-it'
-
+import { ReactComponent as Close } from '../../common/icon/close.svg'
 
 const posting = async (url) => {
     try {
@@ -37,7 +37,8 @@ const posting = async (url) => {
 }
 
 const Blog = () => {
-    const [currentPost, setCurrentPost] = useState('<></>')
+    const [convert, setConvert] = useState('<></>')
+    const [currentPost, setCurrentPost] = useState({})
     const [postList, setPostList] = useState([])
 
     useEffect(() => {
@@ -52,10 +53,16 @@ const Blog = () => {
             if (temp.length > 0) {
                 console.log(2, temp)
                 setPostList(temp)
-
-                posting(temp[0]._data).then((res) => {
-                    setCurrentPost(res)
+                setCurrentPost(() => {
+                    posting(temp[0]._data).then((res) => {
+                        setConvert(res)
+                    })
+                    return temp[0]
                 })
+
+                // 
+                // 
+                // 
             }
         }
     }, [])
@@ -73,7 +80,13 @@ const Blog = () => {
                 setPostList([...postList, item])
             }
         }
-        setCurrentPost(await posting(item._data))
+        setCurrentPost(() => {
+            posting(item._data).then((res) => {
+                setConvert(res)
+            })
+            return item
+        })
+        // setConvert(await posting(item._data))
 
     }
     const supportBtn = [
@@ -107,27 +120,21 @@ const Blog = () => {
                 <Tree selectItem={selectItem} supportBtn={supportBtn} />
             </div>
             <div className='Blog__content'>
-                {
-                    postList.length === 0 ?
-                        <Intro /> :
-                        <>
-                            <div className='Blog__content__titles'>
-                                {
-                                    postList.map((v, i) => {
-                                        return (
-                                            <div
-                                                key={`${v.id}-${i}`}
-                                                className='Blog__content__titles__title'
-                                                onClick={() => { selectItem(v) }}>
-                                                <div>{i + 1} / {v.title}</div>
-                                                {/* <div>X</div> */}
-                                            </div>
-                                        )
-                                    })
-                                }
-                            </div>
-                            <article className='markdown-body' dangerouslySetInnerHTML={{ __html: currentPost || '<h2>Loading...</h2>' }} />
-                        </>
+                {postList.length === 0 ? <Intro /> :
+                    <>
+                        <div className='Blog__content__titles'>
+                            {
+                                postList.map((v, i) => <div
+                                    key={`${v.id}-${i}`}
+                                    className={`Blog__content__titles__title ${currentPost.id === v.id && 'Blog__active'}`}
+                                    onClick={() => { selectItem(v) }}>
+                                    <div className='Blog__content__titles__title__t'>{v.title}</div>
+                                    <Close className='Blog__close' />
+                                </div>)
+                            }
+                        </div>
+                        <article className='markdown-body' dangerouslySetInnerHTML={{ __html: convert || '<h2>Loading...</h2>' }} />
+                    </>
                 }
             </div>
         </div>

@@ -1,5 +1,5 @@
 import './styles.scss'
-import profile from './assets/profile.jpg'
+import profile from '../../common/image/profile.jpg'
 
 const Intro = () => {
     return (

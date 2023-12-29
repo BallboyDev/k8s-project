@@ -47,26 +47,27 @@
             border-bottom: 0.5px solid rgb(38, 38, 38);
 
             &__title {
-                // display: flex;
+                display: flex;
+                position: relative;
                 width: 20%;
                 min-width: 20%;
                 max-width: 20%;
-                height: 2rem;
-                line-height: 2rem;
-
-                padding: 0 1rem;
+                height: 2.5rem;
+                line-height: 2.5rem;
 
                 text-align: center;
                 border-right: 0.5px solid rgb(38, 38, 38);
 
-                text-overflow: ellipsis;
-                overflow: hidden;
-                white-space: nowrap;
-                word-break: break-all;
-
-
-
                 cursor: pointer;
+
+                &__t {
+                    width: calc(100% - 2.5rem);
+                    padding-left: 1rem;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    word-break: break-all;
+                }
             }
         }
 
@@ -78,5 +79,20 @@
 
             // overflow: auto;
         }
+    }
+
+    &__active {
+        border-top: 3px solid #0078d4;
+        background-color: rgb(14, 17, 22);
+    }
+
+    &__close {
+        width: 1rem;
+        height: 1rem;
+        margin: 0.75rem 0.5rem;
+        position: absolute;
+        right: 0;
+
+        fill: rgb(199, 199, 199);
     }
 }
