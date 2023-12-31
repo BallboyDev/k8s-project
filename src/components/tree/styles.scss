@@ -20,6 +20,17 @@
             text-align: center;
         }
     }
+
+    &__arrowRight {
+        height: 75%;
+        fill: rgb(199, 199, 199);
+
+        transition: 0.3s;
+    }
+
+    &__isActive {
+        transform: rotate(90deg);
+    }
 }
 
 .Root {
@@ -31,7 +42,9 @@
 
     &__title {
         display: flex;
+        align-items: center;
         font-weight: bolder;
+        height: 1.25rem;
     }
 }
 
@@ -44,6 +57,9 @@
 
     &__title {
         display: flex;
+        align-items: center;
+        font-weight: bolder;
+        height: 1.25rem;
     }
 }
 

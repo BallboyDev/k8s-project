@@ -4,7 +4,7 @@ import Intro from '../../components/intro'
 import './styles.scss'
 import axios from 'axios'
 import MarkdownIt from 'markdown-it'
-import { ReactComponent as Close } from '../../common/icon/close.svg'
+import { CloseIcon } from '../../common/icon'
 
 const posting = async (url) => {
     try {
@@ -51,7 +51,6 @@ const Blog = () => {
             const temp = JSON.parse(openList)
 
             if (temp.length > 0) {
-                console.log(2, temp)
                 setPostList(temp)
                 setCurrentPost(() => {
                     posting(temp[0]._data).then((res) => {
@@ -59,10 +58,6 @@ const Blog = () => {
                     })
                     return temp[0]
                 })
-
-                // 
-                // 
-                // 
             }
         }
     }, [])
@@ -89,6 +84,20 @@ const Blog = () => {
         // setConvert(await posting(item._data))
 
     }
+
+    const closeItem = (item) => {
+        const others = postList.filter((v) => { return v.id !== item.id })
+
+        localStorage.setItem('openList', JSON.stringify(others))
+        setPostList(others)
+        if (currentPost.id === item.id) {
+            setCurrentPost(() => {
+                posting(others[0]._data).then((res) => { setConvert(res) })
+                return others[0]
+            })
+        }
+    }
+
     const supportBtn = [
         {
             title: 'a',
@@ -109,7 +118,7 @@ const Blog = () => {
             title: 'd',
             tooltip: '',
             func: () => {
-                localStorage.clear()
+
             }
         },
     ]
@@ -126,10 +135,9 @@ const Blog = () => {
                             {
                                 postList.map((v, i) => <div
                                     key={`${v.id}-${i}`}
-                                    className={`Blog__content__titles__title ${currentPost.id === v.id && 'Blog__active'}`}
-                                    onClick={() => { selectItem(v) }}>
-                                    <div className='Blog__content__titles__title__t'>{v.title}</div>
-                                    <Close className='Blog__close' />
+                                    className={`Blog__content__titles__title ${currentPost.id === v.id && 'Blog__active'}`} >
+                                    <div className='Blog__content__titles__title__t' onClick={() => { selectItem(v) }}>{v.title}</div>
+                                    <CloseIcon className='Blog__close' onClick={() => { closeItem(v) }} />
                                 </div>)
                             }
                         </div>

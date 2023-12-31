@@ -28,7 +28,7 @@ const Tree = ({ selectItem, supportBtn }) => {
                     })
                 }
             </div>
-            <div>
+            <div className={'FileTree__itemList'}>
                 {
                     roots_v2.map((v, i) => {
                         if (v.type === 'folder' || v.type === 'root') {

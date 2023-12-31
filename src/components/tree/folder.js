@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-
+import { ArrowRightIcon } from '../../common/icon'
 import File from './file'
 import './styles.scss'
 
@@ -30,7 +30,8 @@ const Folder = ({ data, selectItem }) => {
     return (
         <div className={'Folder'}>
             <div className={'Folder__title'} onClick={onClick}>
-                <div>{isOpen ? '▼' : '▶'}&nbsp;&nbsp;</div>
+                {/* <div>{isOpen ? '▼' : '▶'}&nbsp;&nbsp;</div> */}
+                <ArrowRightIcon className={`FileTree__arrowRight ${isOpen && 'FileTree__isActive'}`} />
                 <div >{title}</div>
             </div>
             {
