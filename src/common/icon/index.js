@@ -4,6 +4,11 @@ import { ReactComponent as ToolsIcon } from './ToolsIcon.svg'
 import { ReactComponent as CodeIcon } from './CodeIcon.svg'
 import { ReactComponent as ForumIcon } from './ForumIcon.svg'
 import { ReactComponent as ArrowRightIcon } from './ArrowRightIcon.svg'
+import { ReactComponent as PostAddIcon } from './PostAddIcon.svg'
+import { ReactComponent as DataObjectIcon } from './DataObjectIcon.svg'
+import { ReactComponent as PlusIcon } from './PlusIcon.svg'
+import { ReactComponent as MoreHorizIcon } from './MoreHorizIcon.svg'
+import { ReactComponent as MoreVertIcon } from './MoreVertIcon.svg'
 
 export {
     CloseIcon,
@@ -11,5 +16,10 @@ export {
     ToolsIcon,
     CodeIcon,
     ForumIcon,
-    ArrowRightIcon
+    ArrowRightIcon,
+    PostAddIcon,
+    DataObjectIcon,
+    PlusIcon,
+    MoreHorizIcon,
+    MoreVertIcon
 }
