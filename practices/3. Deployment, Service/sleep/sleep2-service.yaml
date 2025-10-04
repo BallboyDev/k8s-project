@@ -1,0 +1,12 @@
+apiVersion: v1		# 서비스는 코어 v1 API 를 사용한다.
+kind: Service
+
+metadata:
+  name: sleep-2		# 서비스 이름이 도메인 네임으로 사용된다.
+
+# 서비스 정의에는 셀렉터와 포트의 목록이 포함되어야 한다.
+spec:
+  selector:
+    app: sleep-2	# app 레이블의 값이 sleep-2인 모든 파드가 대상이다.
+  ports:
+    - port: 80		# 80번 포트를 주시하다가 파드의 80번 포트로 트래픽을 전달한다.

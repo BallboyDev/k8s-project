@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: Service
+
+metadata:
+  name: number-api
+
+spec:
+  type: ClusterIP
+  selector:
+    app: lab-numbers-api
+    version: v1
+  ports:
+    - port: 80
+
+---
+
+apiVersion: v1
+kind: Service
+
+metadata:
+  name: number-web
+
+spec:
+  type: LoadBalancer
+  selector:
+    app: lab-numbers-web
+    version: v2
+  ports:
+    - port: 8080
+      targetPort: 80
