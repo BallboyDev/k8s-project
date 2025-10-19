@@ -1,0 +1,28 @@
+gitea: 
+  admin:
+    username: ballboy
+    password: 1234
+
+service:
+  http:
+    type: NodePort
+    port: 3000
+
+  ssh:
+    type: NodePort
+    port: 22
+
+# 데이터 영구 저장
+persistence:
+  enabled: false
+
+
+postgresql:
+  enabled: true
+  postgresqlUsername: gitea  
+  postgresqlPassword: 1234
+  postgresqlDatabase: gitea
+
+# 고가용성 Postgresql 설정
+postgresql-ha:
+  enabled: false
