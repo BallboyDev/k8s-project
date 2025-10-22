@@ -5,6 +5,7 @@ kind: PersistentVolumeClaim
 
 metadata:
   name: gitea-runner-pvc
+  namespace: gitea
   labels:
     app: gitea-runner
     type: pvc
@@ -25,6 +26,7 @@ kind: Deployment
 
 metadata:
   name: gitea-runner-deploy
+  namespace: gitea
   labels:
     app: gitea-runner
     type: deployment
@@ -35,24 +37,30 @@ spec:
   selector:
     matchLabels:
       app: gitea-runner
+      type: pod
   
   template:
     metadata:
       labels:
         app: gitea-runner
+        type: pod
 
     spec:
       containers:
         - name: act-runner
-          image: gitea/act_runner:latest
-          # image: custom-gitea-runner:latest
+          # image: gitea/act_runner:latest
+
+          image: ballboydev/custom-gitea-runner:v1.0
+
+          # image: custom-gitea-runner:0.0.1
           # imagePullPolicy: IfNotPresent
 
           env: 
             # Gitea 서버 URL 
             - name: GITEA_INSTANCE_URL
               # value: "http://127.0.0.1:59457/"
-              value: "http://10.98.155.235:3000"
+              # value: "http://10.98.155.235:3000"
+              value: "http://gitea-http.gitea.svc.cluster.local:3000"
 
             # Secret 리소스의 등록 토큰 참조
             - name: GITEA_RUNNER_REGISTRATION_TOKEN
@@ -63,11 +71,12 @@ spec:
 
             # 러너의 이름을 지정
             - name: GITEA_RUNNER_NAME
-              value: "k8s-runner"
+              value: "custom-runner"
 
             # 러너가 처리할 작업의 레이블을 지정
             - name: GITEA_RUNNER_LABELS
-              value: "ubuntu-latest:docker://node:18-bullseye"
+              # value: "ubuntu-latest:docker://node:18-bullseye"
+              value: "custom-runner-label:host"
 
           volumeMounts:
             # 호스트의 Docker 소켓을 컨테이너에 마운트

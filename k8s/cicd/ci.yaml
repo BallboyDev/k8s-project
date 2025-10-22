@@ -1,0 +1,27 @@
+name: ci
+
+on:
+  pull_request:
+    branches:
+      - main
+      - release
+      - develop
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - name: Use Node.js 18.15.0
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.15.0
+
+      - run: npm ci
+
+      - run: npm run build
