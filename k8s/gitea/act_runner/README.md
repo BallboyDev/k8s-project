@@ -2,7 +2,7 @@
 
 ## act_runner 구축
 ### 0. Runner 이미지 생성
-- gitea에서 제공하는 기본 이미지를 사용할 수 있지만 애플리케이션 개발 환경에 맞춰 커스텀 이미지를 제작하여 사용하는게 일반적이다.
+- gitea에서 제공하는 기본 이미지를 사용할 수 있지만 애플리케이션 개발 환경에 맞춰 커스텀 이미지를 제작하여 사용하는게 효율적이다.
 
 ~~~Dockerfile
 # Custom Act Runner Image
@@ -27,7 +27,7 @@ RUN apk add --no-cache nodejs npm
 
 ### 1. Gitea에서 등록 토큰 발급
 - Gitea 페이지에서 `사이트 관리` -> `Actions` -> `Runners` 로 이동하여 등록 토큰을 복사한다.
-    - `q1CF6KKVsl7hDlJ62LkbZyA6vhf53tf8pxOZ3HmK`
+    - `< token-string >`
 
 
 ### 2. 쿠버네티스 Secret 생성
